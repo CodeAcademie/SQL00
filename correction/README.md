@@ -39,7 +39,7 @@ Il s'agit du principe de cardinalité. Nous pourrions par exemple mettre le code
 
 # Question 6
 ```sql
-SELECT Categories.CategoryName, count(OrderDetails.OrderDetailID) 
+SELECT Categories.CategoryName, count(OrderDetails.OrderDetailID) as "Nb Order Details", sum(OrderDetails.Quantity*Products.Price) as "Sum Order Cost"
 FROM Categories, OrderDetails, Products
 WHERE Categories.CategoryID = Products.CategoryID
 AND Products.ProductID = OrderDetails.ProductID
